@@ -38,9 +38,9 @@ jobs:
   job2:
     runs-on: ubuntu-latest
     
-    outputs:
-      output1: ${{ steps.step1.outputs.step1value }}
-      output2: ${{ steps.step2.outputs.step2value }}
+   # outputs:
+   #   output1: ${{ steps.step1.outputs.step1value }}
+   #   output2: ${{ steps.step2.outputs.step2value }}
     
     steps:
       - name: Step 1
@@ -52,6 +52,10 @@ jobs:
         id: step2
         # run: echo "::set-output name=step2value::world"
         run: echo "step2value=world" >> $GITHUB_OUTPUT
+
+    outputs:
+      output1: ${{ steps.step1.outputs.step1value }}
+      output2: ${{ steps.step2.outputs.step2value }} 
   
   job3:
     runs-on: ubuntu-latest
